@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Mern_LearningSystem_Client/static/css/main.474e5bb6.css",
-    "main.js": "/Mern_LearningSystem_Client/static/js/main.b6613b3f.js",
+    "main.js": "/Mern_LearningSystem_Client/static/js/main.d991b1e7.js",
     "index.html": "/Mern_LearningSystem_Client/index.html",
     "main.474e5bb6.css.map": "/Mern_LearningSystem_Client/static/css/main.474e5bb6.css.map",
-    "main.b6613b3f.js.map": "/Mern_LearningSystem_Client/static/js/main.b6613b3f.js.map"
+    "main.d991b1e7.js.map": "/Mern_LearningSystem_Client/static/js/main.d991b1e7.js.map"
   },
   "entrypoints": [
     "static/css/main.474e5bb6.css",
-    "static/js/main.b6613b3f.js"
+    "static/js/main.d991b1e7.js"
   ]
 }
