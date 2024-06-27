@@ -1,6 +1,5 @@
 import axios from "axios";
-// const API_URL = "https://mern-learningsystem-server.onrender.com/api/user";
-const API_URL = "http://localhost:5050/api/user";
+const API_URL = "https://mern-learningsystem-server.onrender.com/api/user";
 
 // 修改
 
