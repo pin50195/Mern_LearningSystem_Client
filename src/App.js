@@ -36,6 +36,8 @@ function App() {
                 <RegisterComponent
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  loadingPopUp={loadingPopUp}
+                  setLoadingPopUp={setLoadingPopUp}
                 />
               }
             ></Route>
@@ -45,6 +47,8 @@ function App() {
                 <LoginComponent
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  loadingPopUp={loadingPopUp}
+                  setLoadingPopUp={setLoadingPopUp}
                 />
               }
             ></Route>
