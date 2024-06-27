@@ -311,6 +311,7 @@ const RegisterComponent = ({
           </button>
         </div>
       </div>
+      <Loading loadingPopUp={loadingPopUp} />
     </main>
   );
 };

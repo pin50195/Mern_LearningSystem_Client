@@ -192,6 +192,7 @@ const LoginComponent = ({
           </button>
         </div>
       </div>
+      <Loading loadingPopUp={loadingPopUp} />
     </main>
   );
 };
