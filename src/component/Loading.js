@@ -15,10 +15,10 @@ const Loading = ({ loadingPopUp }) => {
     >
       <div
         className="position-absolute top-50 start-50 translate-middle"
-        style={{ width: "40vw" }}
+        style={{ width: "60vw" }}
       >
         <div class="card text-center">
-          <div class="card-body">Loading...(The render server is waking)</div>
+          <div class="card-body">Loading...</div>
         </div>
       </div>
     </div>
