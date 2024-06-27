@@ -15,6 +15,7 @@ import "./styles/style.css";
 function App() {
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   let [currentCourse, setCurrentCourse] = useState("");
+  let [loadingPopUp, setLoadingPopUp] = useState(false);
   return (
     <div className="App">
       <HashRouter>

@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
-const RegisterComponent = ({ currentUser, setCurrentUser }) => {
+const RegisterComponent = ({
+  currentUser,
+  setCurrentUser,
+  loadingPopUp,
+  setLoadingPopUp,
+}) => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -98,12 +103,15 @@ const RegisterComponent = ({ currentUser, setCurrentUser }) => {
         "Register account? (確定註冊會員?) "
       );
       if (confirmRegister) {
+        setLoadingPopUp(true);
         AuthService.register(userName, email, password, role)
           .then(() => {
+            setLoadingPopUp(false);
             window.alert("Register Success (註冊成功)");
             navigate("/login");
           })
           .catch((e) => {
+            setLoadingPopUp(false);
             if (e.response.data.includes('"userName"')) {
               setMessage([
                 e.response.data,

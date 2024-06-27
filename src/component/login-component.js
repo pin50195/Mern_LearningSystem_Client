@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
-const LoginComponent = ({ currentUser, setCurrentUser }) => {
+const LoginComponent = ({
+  currentUser,
+  setCurrentUser,
+  loadingPopUp,
+  setLoadingPopUp,
+}) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +54,7 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
   };
 
   const loginSubmit = async () => {
+    setLoadingPopUp(true);
     if (
       !(email === "") &&
       !(password === "") &&
@@ -59,8 +65,10 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
         localStorage.setItem("user", JSON.stringify(response.data));
         window.alert("Log in Success (登入成功)");
         setCurrentUser(AuthService.getCurrentUser());
+        setLoadingPopUp(false);
         navigate("/profile");
       } catch (e) {
+        setLoadingPopUp(false);
         if (e.response.data.includes('"email"')) {
           setMessage([
             e.response.data,
