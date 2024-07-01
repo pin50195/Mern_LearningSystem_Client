@@ -1,4 +1,4 @@
-# Mern_LearningSystem_Server
+# Mern_LearningSystem_Client
 
 - 使用 MERN (MongoDB、Express、React、Node) 製作 LearningSystem
 - 功能：註冊會員、登入系統、發佈及註冊課程
@@ -22,30 +22,36 @@
 ## 3.功能介紹
 
 - 提醒：初次使用需等待 Render Server 喚醒
-  ![wake render](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/6748c0a2-be19-404e-8fbd-0b3d2ab85713)
+  ![wake render](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/4173e3a8-a776-4a39-ab9a-46424de933a6)
 
 - Nav bar
 
   - 依使用者身份顯示不同內容
-    ![general](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/9d48e355-2092-449f-b17e-cb02fe40d759)
-    ![login](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/2b5657c6-2342-4fc9-8b33-a0f8beca340f)
+    ![general](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/2405e51c-c9b0-4a1d-8f62-695eb10b2b29)
+    ![login](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/dc1c8715-338f-4e59-bace-c023ad2a014c)
+
 
 - 表單資料驗證
 
   - 註冊、登入會員及新增、修改課程表單，即時回饋資料是否符合標準
-    ![form validation](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/cd7bbbf3-59c4-43bd-bf76-359db1562bb3)
+    ![form validation](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/bf655441-4df4-4d46-839a-da725cfc2db2)
+
 
 - 修改課程內容
-  ![edit course](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/60610e08-74a0-4dc2-875e-90afbb943eaf)
+
+  ![edit course](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/e438a0f1-185d-4bd7-9a67-94ee09dc688b)
+
 
 - 查詢及註冊課程
-  ![register course](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/edfbbcc4-3aa2-48c5-a35f-c94b65f309af)
+  
+  ![register course](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/6e819536-bf5b-436e-b49b-88d78e777e3d)
 
 - 個人頁面資訊
   - 講師：顯示身份、開課堂數及學生人數
   - 學生：顯示身份、已註冊課程堂數
-    ![instructor-profile](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/022c4594-17c9-4c07-a98a-5e5ed75213ee)
-    ![student-profile](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/c21d6767-24d8-4c5a-9d93-4075b539a96a)
+    ![instructor-profile](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/02e9de5f-0521-462e-bd96-54fdfb9b0d03)
+    ![student-profile](https://github.com/pin50195/Mern_LearningSystem_Client/assets/156511146/6c970bf3-4889-48b9-9125-f7483ae8e617)
+
 
 ## 4.往後課題
 
