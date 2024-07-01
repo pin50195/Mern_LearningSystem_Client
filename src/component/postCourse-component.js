@@ -133,12 +133,18 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
 
   const postCourse = () => {
     if (
+      !(title === "") &&
+      !(description === "") &&
+      !(price === 0) &&
+      !(hour === 0) &&
+      !(pictureTitle === "") &&
+      !(picture === "") &&
       titleErrorMessage.length +
         descriptionErrorMessage.length +
         hourErrorMessage.length +
         priceErrorMessage.length +
         pictureErrorMessage.length ===
-      0
+        0
     ) {
       let confirmPost = window.confirm("Post Course? (確定新增課程?) ");
       if (confirmPost) {

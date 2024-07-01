@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseService from "../services/course.service";
 import { Buffer } from "buffer";
+import Loading from "./PopUp/Loading";
 
 const CourseComponent = ({
   currentUser,
   setCurrentUser,
   currentCourse,
   setCurrentCourse,
+  loadingPopUp,
+  setLoadingPopUp,
 }) => {
   let [courses, setCourses] = useState(null);
   let [message, setMessage] = useState("");
@@ -18,6 +21,7 @@ const CourseComponent = ({
   };
 
   useEffect(() => {
+    setLoadingPopUp(true);
     let _id;
     if (currentUser) {
       _id = currentUser.found_User._id;
@@ -25,17 +29,21 @@ const CourseComponent = ({
         CourseService.get(_id)
           .then((data) => {
             setCourses(data.data);
+            setLoadingPopUp(false);
           })
           .catch((e) => {
             setMessage(e);
+            setLoadingPopUp(false);
           });
       } else if (currentUser.found_User.role === "Student") {
         CourseService.getEnrolled(_id)
           .then((data) => {
             setCourses(data.data);
+            setLoadingPopUp(false);
           })
           .catch((e) => {
             setMessage(e);
+            setLoadingPopUp(false);
           });
       }
     }
@@ -59,7 +67,9 @@ const CourseComponent = ({
           setMessage(e);
         });
   };
-
+  if (loadingPopUp) {
+    return <Loading loadingPopUp={loadingPopUp} />;
+  }
   return (
     <main>
       {!currentUser && (

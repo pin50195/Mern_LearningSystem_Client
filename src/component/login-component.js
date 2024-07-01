@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
-import Loading from "./Loading";
+import Loading from "./PopUp/Loading";
 
 const LoginComponent = ({
   currentUser,
@@ -64,10 +64,10 @@ const LoginComponent = ({
       try {
         let response = await AuthService.login(email, password);
         localStorage.setItem("user", JSON.stringify(response.data));
-        window.alert("Log in Success (登入成功)");
         setCurrentUser(AuthService.getCurrentUser());
-        setLoadingPopUp(false);
+        alert("Log in Success (登入成功)");
         navigate("/profile");
+        setLoadingPopUp(false);
       } catch (e) {
         setLoadingPopUp(false);
         if (e.response.data.includes('"email"')) {
@@ -93,6 +93,7 @@ const LoginComponent = ({
         }
       }
     } else {
+      setLoadingPopUp(false);
       alert("Please check the form.(請確認表單已填寫正確)");
     }
   };
@@ -193,6 +194,7 @@ const LoginComponent = ({
           </button>
         </div>
       </div>
+
       <Loading loadingPopUp={loadingPopUp} />
     </main>
   );

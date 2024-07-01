@@ -16,6 +16,7 @@ function App() {
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
   let [currentCourse, setCurrentCourse] = useState("");
   let [loadingPopUp, setLoadingPopUp] = useState(false);
+
   return (
     <div className="App">
       <HashRouter>
@@ -58,6 +59,8 @@ function App() {
                 <ProfileComponent
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  loadingPopUp={loadingPopUp}
+                  setLoadingPopUp={setLoadingPopUp}
                 />
               }
             ></Route>
@@ -69,6 +72,8 @@ function App() {
                   setCurrentUser={setCurrentUser}
                   currentCourse={currentCourse}
                   setCurrentCourse={setCurrentCourse}
+                  loadingPopUp={loadingPopUp}
+                  setLoadingPopUp={setLoadingPopUp}
                 />
               }
             ></Route>
@@ -87,6 +92,8 @@ function App() {
                 <EnrollComponent
                   currentUser={currentUser}
                   setCurrentUser={setCurrentUser}
+                  loadingPopUp={loadingPopUp}
+                  setLoadingPopUp={setLoadingPopUp}
                 />
               }
             ></Route>

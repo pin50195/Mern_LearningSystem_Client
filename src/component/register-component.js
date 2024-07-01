@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../services/auth.service";
-import Loading from "./Loading";
+import Loading from "./PopUp/Loading";
 
 const RegisterComponent = ({
   currentUser,
@@ -127,6 +127,8 @@ const RegisterComponent = ({
                   ? '"email"為必填'
                   : '"email"須為有效email',
               ]);
+            } else if (e.response.data === "E-mail has been registered.") {
+              setMessage([e.response.data, "E-mail已被註冊"]);
             } else if (e.response.data.includes('"password"')) {
               setMessage([
                 e.response.data,

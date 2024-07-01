@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseService from "../services/course.service";
 import { Buffer } from "buffer";
+import Loading from "./PopUp/Loading";
 
-const EnrollComponent = ({ currentUser, setCurrentUser }) => {
+const EnrollComponent = ({
+  currentUser,
+  setCurrentUser,
+  loadingPopUp,
+  setLoadingPopUp,
+}) => {
   let [searchInput, setSearchInput] = useState("");
   let [searchResult, setSearchResult] = useState(null);
 
@@ -25,28 +31,39 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
   };
 
   const enrollCourse = (e) => {
-    CourseService.enroll(e.target.id)
-      .then((data) => {
-        if (data.data.msg !== "") {
-          window.alert(data.data.msg);
-        } else {
-          window.alert("Register Success (註冊成功)");
-          navigate("/course");
-        }
-      })
-      .catch((err) => {
-        window.alert(err);
-      });
+    let enrollConfirm = window.confirm("Register course? (確定註冊課程?)");
+    if (enrollConfirm) {
+      CourseService.enroll(e.target.id)
+        .then((data) => {
+          if (data.data.msg !== "") {
+            window.alert(data.data.msg);
+          } else {
+            window.alert("Register Success (註冊成功)");
+            navigate("/course");
+          }
+        })
+        .catch((err) => {
+          window.alert(err);
+        });
+    }
   };
+
   useEffect(() => {
+    setLoadingPopUp(true);
     CourseService.getAllCourses()
       .then((data) => {
         setSearchResult(data.data);
+        setLoadingPopUp(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoadingPopUp(false);
       });
-  });
+  }, []);
+
+  if (loadingPopUp) {
+    return <Loading loadingPopUp={loadingPopUp} />;
+  }
 
   return (
     <main style={{ padding: "3rem" }}>

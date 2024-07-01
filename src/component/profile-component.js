@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CourseService from "../services/course.service";
+import Loading from "./PopUp/Loading";
 
-const ProfileComponent = ({ currentUser, setCurrentUser }) => {
+const ProfileComponent = ({
+  currentUser,
+  setCurrentUser,
+  loadingPopUp,
+  setLoadingPopUp,
+}) => {
   let [studentRegisterCourses, setStudentRegisterCourses] = useState("");
   let [coursesNumber, setCoursesNumber] = useState("");
   let [studentsNumber, setStudentsNumber] = useState("");
-
-  // 頁面載入前緩衝
-  let [loading, setLoading] = useState(true);
 
   //記錄錯誤訊息
   let [error, setError] = useState(null);
@@ -19,6 +22,7 @@ const ProfileComponent = ({ currentUser, setCurrentUser }) => {
   };
 
   useEffect(() => {
+    setLoadingPopUp(true);
     const fetchData = async () => {
       try {
         const [enrolledData, coursesData] = await Promise.all([
@@ -36,16 +40,17 @@ const ProfileComponent = ({ currentUser, setCurrentUser }) => {
         );
       } catch (err) {
         setError(err);
+        setLoadingPopUp(false);
       } finally {
-        setLoading(false);
+        setLoadingPopUp(false);
       }
     };
 
     fetchData();
   }, []);
 
-  if (loading) {
-    return;
+  if (loadingPopUp) {
+    return <Loading loadingPopUp={loadingPopUp} />;
   }
   if (error) {
     return (
